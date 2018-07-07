@@ -22,6 +22,17 @@ class FilterModel {
 
 export class SearchBarComponent {
 
+  // Example usage:
+  // <search-bar 
+  // [placeholder]="'Buscando por: '" 
+  // [filterArray]="arr" 
+  // (filteredEmitter)="filtered($event)"
+  // (selectedEmitter)="selected($event)"
+  // [returnAsObservable]="true"
+  // [filterOptions]="filterOptions"
+  // [alertText]="['Selecione o filtro', '', 'Cancelar', 'Selecionar']"
+  // ></search-bar>
+
   /**
    * Text to be shown on the searchbar
    */
@@ -73,6 +84,7 @@ export class SearchBarComponent {
   ) {
     this.filterArray = [];
     this.alertText = [];
+    this.placeholder = 'Search by: ';
     this._selectedFilter = new FilterModel();
   }
 
@@ -86,6 +98,7 @@ export class SearchBarComponent {
       this.filteredEmitter.emit(this.filterArray);
     }
     this._selectedFilter = this.filterOptions[0];
+    this.placeholder ? this.placeholder : 'Search by: ';
   }
 
   /**
@@ -93,14 +106,14 @@ export class SearchBarComponent {
    */
   showAlert() {
     this._alert = this.alertCtrl.create({
-      title: this.alertText[0],
-      subTitle: this.alertText[1],
+      title: this.alertText[0] ? this.alertText[0] : 'Select filter',
+      subTitle: this.alertText[1] ? this.alertText[1] : '',
       buttons: [
         {
-          text: this.alertText[2],
+          text: this.alertText[2] ? this.alertText[2] : 'Cancel',
         },
         {
-          text: this.alertText[3],
+          text: this.alertText[3] ? this.alertText[1] : 'OK',
           handler: (data: FilterModel) => {
             if (data) {
               this._selectedFilter = data;

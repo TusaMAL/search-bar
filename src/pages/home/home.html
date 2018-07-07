@@ -1,12 +1,12 @@
 <ion-header>
   <search-bar 
-  [placeholder]="'Buscando Por: '" 
+  [placeholder]="'Buscando por: '" 
   [filterArray]="arr" 
   (filteredEmitter)="filtered($event)"
   (selectedEmitter)="selected($event)"
   [returnAsObservable]="true"
   [filterOptions]="filterOptions"
-  [alertText]="['Selecione o filtro', null, 'Cancelar', 'Selecionar']"
+  [alertText]="['Selecione o filtro', '', 'Cancelar', 'Selecionar']"
   ></search-bar>
 </ion-header>
 
