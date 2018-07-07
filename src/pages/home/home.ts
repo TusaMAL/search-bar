@@ -11,26 +11,47 @@ export class HomePage {
   arr = [
     {
       label: 'Teste 1',
-      value: '1',
+      nome: 'Felipe',
+      endereco: 'Nova Granada',
     },
     {
       label: 'Teste 2',
-      value: '2',
+      nome: 'TusaMAL',
+      endereco: 'DOTO 2',
     },
     {
       label: 'Teste 3',
-      value: '3',
+      nome: 'Felipe',
+      endereco: 'Nova Granada',
     }
   ]
 
   arr2: any;
+
+  filterOptions: any[] = [
+    {
+      value: 'label',
+      label: 'Label'
+    },
+    {
+      value: 'nome',
+      label: 'Nome'
+    },
+    {
+      value: 'endereco',
+      label: 'Endereco'
+    }
+  ];
 
   constructor(
     public navCtrl: NavController,
   ) {
   }
 
-  filtered(event: any[] | Observable<any[]>) {
+  filtered(event: Array<any> | Observable<Array<any>>) {
     this.arr2 = event;
+  }
+  selected(event: any) {
+    console.log(event);
   }
 }

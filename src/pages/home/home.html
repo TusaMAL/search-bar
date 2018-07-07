@@ -1,17 +1,21 @@
 <ion-header>
   <search-bar 
-  [placeholder]="'Buscando Por:'" 
+  [placeholder]="'Buscando Por: '" 
   [filterArray]="arr" 
   (filteredEmitter)="filtered($event)"
-  [showFunnel]="true"
+  (selectedEmitter)="selected($event)"
   [returnAsObservable]="true"
+  [filterOptions]="filterOptions"
+  [alertText]="['Selecione o filtro', null, 'Cancelar', 'Selecionar']"
   ></search-bar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
     <ion-list>
         <ion-item *ngFor="let item of arr2 | async">
-          {{ item.label }}
+          <h1>{{ item.label }}</h1>
+          <h1>{{ item.nome }}</h1>
+          <h1>{{ item.endereco }}</h1>
         </ion-item>
       </ion-list>
 </ion-content>

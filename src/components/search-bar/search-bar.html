@@ -1,10 +1,9 @@
 <ion-navbar>
-		<ion-buttons left *ngIf="showFunnel">
-			<button ion-button icon-only>
-    <ion-icon name="funnel">
-    </ion-icon>
-    </button>
-		</ion-buttons>
-		<ion-searchbar [placeholder]="placeholder + searchBy" [(ngModel)]="myInput" [showCancelButton]="true" (ionInput)="onInput($event.target.value)"
-		 (ionCancel)="onCancel($event)"></ion-searchbar>
-	</ion-navbar>
+	<ion-buttons left *ngIf="filterOptions.length > 1">
+		<button (tap)="showAlert()" ion-button icon-only>
+			<ion-icon name="funnel">
+			</ion-icon>
+		</button>
+	</ion-buttons>
+	<ion-searchbar [placeholder]="placeholder + selectedFilter.label" showCancelButton="true" (ionInput)="onInput($event.target.value)"></ion-searchbar>
+</ion-navbar>
