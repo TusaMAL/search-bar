@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
@@ -22,7 +22,6 @@ export class SearchBarComponent {
   @Input() showFunnel: boolean;
 
   constructor(
-    public changes: ChangeDetectorRef
   ) {
   }
 
