@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
+import { FilterModel } from '../../components/search-bar/search-bar';
 
 @Component({
   selector: 'page-home',
@@ -28,7 +29,7 @@ export class HomePage {
 
   arr2: any;
 
-  filterOptions: any[] = [
+  filterOptions: FilterModel[] = [
     {
       value: 'label',
       label: 'Label'
@@ -51,7 +52,8 @@ export class HomePage {
   filtered(event: Array<any> | Observable<Array<any>>) {
     this.arr2 = event;
   }
-  selected(event: any) {
+  
+  selected(event: FilterModel) {
     console.log(event);
   }
 }

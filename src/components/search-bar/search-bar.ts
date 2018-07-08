@@ -10,14 +10,30 @@ import { AlertController, Alert } from 'ionic-angular';
  * Components.
  */
 
-class FilterModel {
+export class FilterModel {
+  /**
+   * Label to show on the alert
+   */
   label: string;
-  value: any;
+  /**
+   * Value of the property on the array that will be used to filter
+   */
+  value: string;
 }
 
 @Component({
   selector: 'search-bar',
-  templateUrl: 'search-bar.html'
+  template: `
+  <ion-navbar>
+	<ion-buttons left *ngIf="filterOptions.length > 1">
+		<button (tap)="showAlert()" ion-button icon-only>
+			<ion-icon name="funnel">
+			</ion-icon>
+		</button>
+	</ion-buttons>
+	<ion-searchbar [placeholder]="placeholder + selectedFilter.label" showCancelButton="true" (ionInput)="onInput($event.target.value)"></ion-searchbar>
+</ion-navbar>
+`
 })
 
 export class SearchBarComponent {
@@ -113,7 +129,7 @@ export class SearchBarComponent {
           text: this.alertText[2] ? this.alertText[2] : 'Cancel',
         },
         {
-          text: this.alertText[3] ? this.alertText[1] : 'OK',
+          text: this.alertText[3] ? this.alertText[3] : 'OK',
           handler: (data: FilterModel) => {
             if (data) {
               this._selectedFilter = data;
@@ -129,8 +145,8 @@ export class SearchBarComponent {
         value: option,
         label: option.label,
         checked: this._selectedFilter.value == option.value ? true : false
-      })
-    })
+      });
+    });
     this._alert.present();
   }
 
