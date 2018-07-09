@@ -6,7 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { SearchBarModule } from '../components/search-bar/search-bar.module';
+import { SearchBarModule } from 'ionic-search-bar';
 
 @NgModule({
   declarations: [

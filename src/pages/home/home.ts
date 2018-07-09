@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
-import { FilterModel } from '../../components/search-bar/search-bar';
+import { FilterModel } from 'ionic-search-bar';
 
 @Component({
   selector: 'page-home',
@@ -9,7 +9,7 @@ import { FilterModel } from '../../components/search-bar/search-bar';
 })
 export class HomePage {
 
-  arr = [
+  lista1 = [
     {
       label: 'Teste 1',
       nome: 'Felipe',
@@ -25,7 +25,29 @@ export class HomePage {
       nome: 'Felipe',
       endereco: 'Nova Granada',
     }
-  ]
+  ];
+
+  lista2 = [
+    {
+      label: 'OMG 1',
+      nome: 'GMO 1',
+      endereco: 'MGO 1',
+    },
+    {
+      label: 'ASDF',
+      nome: 'FDAS',
+      endereco: 'ASDF',
+    },
+    {
+      label: '123321',
+      nome: 'VCXZ',
+      endereco: 'ZXC',
+    }
+  ];
+
+  arr = [];
+
+  segment: string = 'lista1';
 
   arr2: any;
 
@@ -47,6 +69,7 @@ export class HomePage {
   constructor(
     public navCtrl: NavController,
   ) {
+    this.arr = this.lista1;
   }
 
   filtered(event: Array<any> | Observable<Array<any>>) {
@@ -55,5 +78,9 @@ export class HomePage {
   
   selected(event: FilterModel) {
     console.log(event);
+  }
+
+  segmentChanged(event) {
+    event.value == 'lista1' ? this.arr = this.lista1 : this.arr = this.lista2;
   }
 }
