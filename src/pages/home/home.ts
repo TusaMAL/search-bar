@@ -11,37 +11,95 @@ export class HomePage {
 
   lista1 = [
     {
-      label: 'Teste 1',
-      nome: 'Felipe',
-      endereco: 'Nova Granada',
+      nome: 'Av. 1',
+      label: {
+        label: 'Avenida 1'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 1'
+        }
+      },
     },
     {
-      label: 'Teste 2',
-      nome: 'TusaMAL',
-      endereco: 'DOTO 2',
+      nome: 'Av. 2',
+      label: {
+        label: 'Avenida 2'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 2'
+        }
+      },
     },
     {
-      label: 'Teste 3',
-      nome: 'Felipe',
-      endereco: 'Nova Granada',
+      nome: 'Av. 3',
+      label: {
+        label: 'Avenida 3'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 3'
+        }
+      },
+    },
+    {
+      nome: 'Av. 4',
+      label: {
+        label: 'Avenida 4'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 4'
+        }
+      },
     }
   ];
 
   lista2 = [
     {
-      label: 'OMG 1',
-      nome: 'GMO 1',
-      endereco: 'MGO 1',
+      nome: 'Av. 5',
+      label: {
+        label: 'Avenida 5'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 5'
+        }
+      },
     },
     {
-      label: 'ASDF',
-      nome: 'FDAS',
-      endereco: 'ASDF',
+      nome: 'Av. 6',
+      label: {
+        label: 'Avenida 6'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 6'
+        }
+      },
     },
     {
-      label: '123321',
-      nome: 'VCXZ',
-      endereco: 'ZXC',
+      nome: 'Av. 7',
+      label: {
+        label: 'Avenida 7'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 7'
+        }
+      },
+    },
+    {
+      nome: 'Av. 8',
+      label: {
+        label: 'Avenida 8'
+      },
+      endereco: {
+        endereco: {
+          endereco: 'Avenue 8'
+        }
+      },
     }
   ];
 
@@ -53,15 +111,15 @@ export class HomePage {
 
   filterOptions: FilterModel[] = [
     {
-      value: 'label',
-      label: 'Label'
-    },
-    {
       value: 'nome',
       label: 'Nome'
     },
     {
-      value: 'endereco',
+      value: 'label.label',
+      label: 'Label'
+    },
+    {
+      value: 'endereco.endereco.endereco',
       label: 'Endereco'
     }
   ];
